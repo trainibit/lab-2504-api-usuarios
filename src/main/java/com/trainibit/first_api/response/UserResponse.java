@@ -1,6 +1,7 @@
 package com.trainibit.first_api.response;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class UserResponse {
@@ -9,6 +10,7 @@ public class UserResponse {
     private String lastName;
     private String email;
     private UUID uuid;
+    private LocalDate birthDate;
     private Timestamp createdDate;
     private Timestamp updatedDate;
     private String age;
@@ -67,5 +69,13 @@ public class UserResponse {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 }

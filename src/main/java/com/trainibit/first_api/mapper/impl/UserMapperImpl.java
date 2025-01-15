@@ -5,6 +5,9 @@ import com.trainibit.first_api.mapper.UserMapper;
 import com.trainibit.first_api.response.UserResponse;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +22,14 @@ public class UserMapperImpl implements UserMapper {
         userResponse.setCreatedDate(user.getCreatedDate());
         userResponse.setUpdatedDate(user.getUpdatedDate());
         userResponse.setUuid(user.getUuid());
+
+        LocalDate birthdate = user.getBirthdate();
+        LocalDate currentDate = LocalDate.now();
+
+        Period period = Period.between(birthdate, currentDate);
+
+        userResponse.setBirthDate(birthdate);
+        userResponse.setAge(period.getYears() + " years, " + period.getMonths() + " months and " + period.getDays() + " days" );
 
         return userResponse;
     }
