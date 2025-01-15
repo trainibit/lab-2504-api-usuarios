@@ -38,7 +38,7 @@ public class User {
     private Timestamp updatedDate;
 
     @Column(name = "uuid", nullable = true)
-    private UUID uuid;
+    private UUID UUID;
 
     public Long getId() {
         return id;
@@ -97,10 +97,10 @@ public class User {
     }
 
     public UUID getUuid() {
-        return uuid;
+        return UUID;
     }
 
     public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+        this.UUID = uuid;
     }
 }
