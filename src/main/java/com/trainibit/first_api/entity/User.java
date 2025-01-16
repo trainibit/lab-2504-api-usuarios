@@ -5,30 +5,31 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Getter
+@Setter
 @Entity(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "first_name", nullable = false)
     private String name;
-
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "birthdate", nullable = true)
+    @Column(name = "birthdate")
     private LocalDate birthdate;
 
     @Column(name = "created_date", nullable = false)
@@ -37,70 +38,9 @@ public class User {
     @Column(name = "updated_date", nullable = false)
     private Timestamp updatedDate;
 
-    @Column(name = "uuid", nullable = true)
+    @Column(name = "uuid")
     private UUID UUID;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public Timestamp getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Timestamp createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Timestamp getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Timestamp updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
-    public UUID getUuid() {
-        return UUID;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.UUID = uuid;
-    }
+    @Column(name = "planet")
+    private String planet;
 }

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -37,7 +36,7 @@ public class UserServiceImpl implements UserService {
         User newUser = userMapper.requestToEntity(userRequest);
 
         Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
-        newUser.setUuid(UUID.randomUUID());
+        newUser.setUUID(UUID.randomUUID());
         newUser.setCreatedDate(currentTimeStamp);
         newUser.setUpdatedDate(currentTimeStamp);
 
