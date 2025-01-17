@@ -7,13 +7,13 @@ import lombok.Setter;
 @Setter
 public class PropertiesResultPlanetResponse {
     private String diameter;
-    private String rotationPeriod;
-    private String orbitalPeriod;
+    private String rotation_period;
+    private String orbital_period;
     private String gravity;
     private String population;
     private String climate;
     private String terrain;
-    private String surfaceWater;
+    private String surface_water;
     private String created;
     private String edited;
     private String name;

@@ -5,6 +5,7 @@ import com.trainibit.first_api.mapper.UserMapper;
 import com.trainibit.first_api.repository.UserRepository;
 import com.trainibit.first_api.request.UserRequest;
 import com.trainibit.first_api.response.UserResponse;
+import com.trainibit.first_api.response.external.PlanetResponse;
 import com.trainibit.first_api.service.PlanetService;
 import com.trainibit.first_api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,10 @@ public class UserServiceImpl implements UserService {
         newUser.setUpdatedDate(currentTimeStamp);
 
         Random random = new Random();
-        newUser.setPlanet(planetService.getPlanetById(random.nextInt(60) + 1));
+        int randomNumber = random.nextInt(60) + 1;
+        PlanetResponse randomPlanet = planetService.getPlanetById(randomNumber);
+
+        newUser.setPlanet(randomPlanet.getResult().getProperties().getName());
 
         return userMapper.entityToResponse(userRepository.save(newUser));
     }

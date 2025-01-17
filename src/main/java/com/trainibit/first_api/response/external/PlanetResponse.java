@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class PlanetResponse {
     private String message;
-    private ResultPlanetResponse resultPlanetResponse;
+    private ResultPlanetResponse result;
 }

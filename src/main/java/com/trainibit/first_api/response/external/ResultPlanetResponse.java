@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResultPlanetResponse {
-    private PropertiesResultPlanetResponse propertiesResultPlanetResponse;
+    private PropertiesResultPlanetResponse properties;
     private String description;
-    private String id;
+    private String _id;
     private String uid;
-    private int v;
+    private int __v;
 }
