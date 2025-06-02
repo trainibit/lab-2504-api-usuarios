@@ -41,6 +41,4 @@ public class User {
     @Column(name = "uuid")
     private UUID UUID;
 
-    @Column(name = "planet")
-    private String planet;
 }

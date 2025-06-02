@@ -23,4 +23,5 @@
 hs_err_pid*
 replay_pid*
 
-src/main/java/com/trainibit/first_api/Tests.java
+.idea/
+target/

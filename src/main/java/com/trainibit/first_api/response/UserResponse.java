@@ -19,5 +19,4 @@ public class UserResponse {
     private Timestamp createdDate;
     private Timestamp updatedDate;
     private String age;
-    private String planet;
 }

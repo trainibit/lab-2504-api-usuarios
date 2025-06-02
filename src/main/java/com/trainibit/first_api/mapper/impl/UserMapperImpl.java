@@ -31,8 +31,6 @@ public class UserMapperImpl implements UserMapper {
         userResponse.setBirthDate(birthdate);
         userResponse.setAge(period.getYears() + " years, " + period.getMonths() + " months and " + period.getDays() + " days" );
 
-        userResponse.setPlanet(user.getPlanet());
-
         return userResponse;
     }
 
