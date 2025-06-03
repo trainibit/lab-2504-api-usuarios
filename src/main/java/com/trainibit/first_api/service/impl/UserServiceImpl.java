@@ -1,22 +1,28 @@
 package com.trainibit.first_api.service.impl;
 
+import com.trainibit.first_api.client.PlanetClient;
 import com.trainibit.first_api.entity.User;
 import com.trainibit.first_api.mapper.UserMapper;
 import com.trainibit.first_api.repository.UserRepository;
 import com.trainibit.first_api.request.UserRequest;
 import com.trainibit.first_api.response.UserResponse;
+import com.trainibit.first_api.response.external.PlanetResponse;
 import com.trainibit.first_api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PlanetClient planetClient;
 
     @Autowired
     private UserMapper userMapper;
@@ -40,6 +46,13 @@ public class UserServiceImpl implements UserService {
         newUser.setUUID(UUID.randomUUID());
         newUser.setCreatedDate(currentTimeStamp);
         newUser.setUpdatedDate(currentTimeStamp);
+
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(60) + 1;
+        PlanetResponse randomPlanet = planetClient.getPlanetById(randomNumber);
+
+        newUser.setPlanet(randomPlanet.getResult().getProperties().getName());
 
         return userMapper.entityToResponse(userRepository.save(newUser));
     }
