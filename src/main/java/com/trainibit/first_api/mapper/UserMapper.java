@@ -10,4 +10,5 @@ public interface UserMapper {
     UserResponse entityToResponse(User user);
     List<UserResponse> entityToResponseList(List<User> userList);
     User requestToEntity(UserRequest userRequest);
+
 }

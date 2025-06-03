@@ -31,6 +31,9 @@ public class UserMapperImpl implements UserMapper {
         userResponse.setBirthDate(birthdate);
         userResponse.setAge(period.getYears() + " years, " + period.getMonths() + " months and " + period.getDays() + " days" );
 
+        userResponse.setPlanet(user.getPlanet());//-----------------------------------
+        userResponse.setPet(user.getPet());
+
         return userResponse;
     }
 
@@ -50,6 +53,7 @@ public class UserMapperImpl implements UserMapper {
         user.setLastName(userRequest.getLastName());
         user.setEmail(userRequest.getEmail());
         user.setBirthdate(userRequest.getBirthdate());
+
 
         return user;
     }
