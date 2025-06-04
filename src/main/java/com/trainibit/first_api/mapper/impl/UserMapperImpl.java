@@ -26,10 +26,17 @@ public class UserMapperImpl implements UserMapper {
         LocalDate birthdate = user.getBirthdate();
         LocalDate currentDate = LocalDate.now();
 
-        Period period = Period.between(birthdate, currentDate);
+        if (birthdate != null) {
+            Period period = Period.between(birthdate, currentDate);
+            userResponse.setBirthDate(birthdate);
+            userResponse.setAge(period.getYears() + " years, " + period.getMonths() + " months and " + period.getDays() + " days");
+        } else {
+            userResponse.setBirthDate(null);
+            userResponse.setAge("Birthdate not available");
+        }
 
-        userResponse.setBirthDate(birthdate);
-        userResponse.setAge(period.getYears() + " years, " + period.getMonths() + " months and " + period.getDays() + " days" );
+        userResponse.setPlanet(user.getPlanet());
+        userResponse.setPet(user.getPet());
 
         return userResponse;
     }
