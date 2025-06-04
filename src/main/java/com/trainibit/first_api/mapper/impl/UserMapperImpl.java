@@ -22,7 +22,10 @@ public class UserMapperImpl implements UserMapper {
         userResponse.setCreatedDate(user.getCreatedDate());
         userResponse.setUpdatedDate(user.getUpdatedDate());
         userResponse.setUuid(user.getUUID());
-
+        //Establece el planeta
+        userResponse.setPlanet(user.getPlanet());
+        //Establece la mascota
+        userResponse.setPet(user.getPet());
         LocalDate birthdate = user.getBirthdate();
         LocalDate currentDate = LocalDate.now();
 
